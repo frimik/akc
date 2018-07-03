@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 
 	if flag.NArg() < 1 {
-		fmt.Printf("Usage: akc [OPTION]... USER")
+		fmt.Printf("Usage: akc [OPTION]... USER\n")
 		os.Exit(1)
 	}
 
@@ -47,6 +47,6 @@ func main() {
 	}
 
 	for _, key := range res.Keys {
-		fmt.Printf("key: %s", key)
+		fmt.Printf("%s\n", key)
 	}
 }
