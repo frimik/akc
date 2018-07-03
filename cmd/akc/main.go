@@ -40,10 +40,10 @@ func main() {
 
 	client := pb.NewAuthorizedKeysClient(conn)
 
-	userKeys := &pb.User{Username: user}
-	res, err := client.Auth(context.Background(), userKeys)
+	req := &pb.AuthorizedKeysRequest{Username: user}
+	res, err := client.Match(context.Background(), req)
 	if err != nil {
-		log.Fatalf("Could not auth %s: %v", userKeys.Username, err)
+		log.Fatalf("Could not auth %s: %v", req.Username, err)
 	}
 
 	for _, key := range res.Keys {

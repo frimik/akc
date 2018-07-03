@@ -3,17 +3,18 @@ syntax = "proto3";
 package akc;
 
 service AuthorizedKeys {
-    rpc Auth(User) returns(Keys) {}
+    rpc Match (AuthorizedKeysRequest) returns (AuthorizedKeysResponse) {}
 }
 
-message User {
+message AuthorizedKeysRequest {
     string username = 1;
 }
 
-message Keys{
-    message Key {
-        string key = 1;
-    }
-    
-    repeated Key keys = 1;
+message AuthorizedKeysResponse{
+    string username = 1;
+    repeated Key keys = 2;
+}
+
+message Key {
+    string Key = 1;
 }

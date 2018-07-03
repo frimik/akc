@@ -40,9 +40,9 @@ func main() {
 
 type server struct{}
 
-func (server) Auth(ctx context.Context, user *pb.User) (*pb.Keys, error) {
-	p := pb.Keys{
-		Keys: []*pb.Keys_Key{
+func (server) Match(ctx context.Context, user *pb.AuthorizedKeysRequest) (*pb.AuthorizedKeysResponse, error) {
+	p := pb.AuthorizedKeysResponse{
+		Keys: []*pb.Key{
 			{
 				Key: "foobar baz",
 			},

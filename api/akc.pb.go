@@ -23,114 +23,122 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type User struct {
+type AuthorizedKeysRequest struct {
 	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *User) Reset()         { *m = User{} }
-func (m *User) String() string { return proto.CompactTextString(m) }
-func (*User) ProtoMessage()    {}
-func (*User) Descriptor() ([]byte, []int) {
-	return fileDescriptor_akc_8293eb9c04628bc9, []int{0}
+func (m *AuthorizedKeysRequest) Reset()         { *m = AuthorizedKeysRequest{} }
+func (m *AuthorizedKeysRequest) String() string { return proto.CompactTextString(m) }
+func (*AuthorizedKeysRequest) ProtoMessage()    {}
+func (*AuthorizedKeysRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_akc_dfc3071bc1e6a17a, []int{0}
 }
-func (m *User) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_User.Unmarshal(m, b)
+func (m *AuthorizedKeysRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthorizedKeysRequest.Unmarshal(m, b)
 }
-func (m *User) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_User.Marshal(b, m, deterministic)
+func (m *AuthorizedKeysRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthorizedKeysRequest.Marshal(b, m, deterministic)
 }
-func (dst *User) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_User.Merge(dst, src)
+func (dst *AuthorizedKeysRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthorizedKeysRequest.Merge(dst, src)
 }
-func (m *User) XXX_Size() int {
-	return xxx_messageInfo_User.Size(m)
+func (m *AuthorizedKeysRequest) XXX_Size() int {
+	return xxx_messageInfo_AuthorizedKeysRequest.Size(m)
 }
-func (m *User) XXX_DiscardUnknown() {
-	xxx_messageInfo_User.DiscardUnknown(m)
+func (m *AuthorizedKeysRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthorizedKeysRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_User proto.InternalMessageInfo
+var xxx_messageInfo_AuthorizedKeysRequest proto.InternalMessageInfo
 
-func (m *User) GetUsername() string {
+func (m *AuthorizedKeysRequest) GetUsername() string {
 	if m != nil {
 		return m.Username
 	}
 	return ""
 }
 
-type Keys struct {
-	Keys                 []*Keys_Key `protobuf:"bytes,1,rep,name=keys,proto3" json:"keys,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+type AuthorizedKeysResponse struct {
+	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Keys                 []*Key   `protobuf:"bytes,2,rep,name=keys,proto3" json:"keys,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Keys) Reset()         { *m = Keys{} }
-func (m *Keys) String() string { return proto.CompactTextString(m) }
-func (*Keys) ProtoMessage()    {}
-func (*Keys) Descriptor() ([]byte, []int) {
-	return fileDescriptor_akc_8293eb9c04628bc9, []int{1}
+func (m *AuthorizedKeysResponse) Reset()         { *m = AuthorizedKeysResponse{} }
+func (m *AuthorizedKeysResponse) String() string { return proto.CompactTextString(m) }
+func (*AuthorizedKeysResponse) ProtoMessage()    {}
+func (*AuthorizedKeysResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_akc_dfc3071bc1e6a17a, []int{1}
 }
-func (m *Keys) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Keys.Unmarshal(m, b)
+func (m *AuthorizedKeysResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AuthorizedKeysResponse.Unmarshal(m, b)
 }
-func (m *Keys) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Keys.Marshal(b, m, deterministic)
+func (m *AuthorizedKeysResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AuthorizedKeysResponse.Marshal(b, m, deterministic)
 }
-func (dst *Keys) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Keys.Merge(dst, src)
+func (dst *AuthorizedKeysResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AuthorizedKeysResponse.Merge(dst, src)
 }
-func (m *Keys) XXX_Size() int {
-	return xxx_messageInfo_Keys.Size(m)
+func (m *AuthorizedKeysResponse) XXX_Size() int {
+	return xxx_messageInfo_AuthorizedKeysResponse.Size(m)
 }
-func (m *Keys) XXX_DiscardUnknown() {
-	xxx_messageInfo_Keys.DiscardUnknown(m)
+func (m *AuthorizedKeysResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AuthorizedKeysResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Keys proto.InternalMessageInfo
+var xxx_messageInfo_AuthorizedKeysResponse proto.InternalMessageInfo
 
-func (m *Keys) GetKeys() []*Keys_Key {
+func (m *AuthorizedKeysResponse) GetUsername() string {
+	if m != nil {
+		return m.Username
+	}
+	return ""
+}
+
+func (m *AuthorizedKeysResponse) GetKeys() []*Key {
 	if m != nil {
 		return m.Keys
 	}
 	return nil
 }
 
-type Keys_Key struct {
-	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+type Key struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=Key,proto3" json:"Key,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Keys_Key) Reset()         { *m = Keys_Key{} }
-func (m *Keys_Key) String() string { return proto.CompactTextString(m) }
-func (*Keys_Key) ProtoMessage()    {}
-func (*Keys_Key) Descriptor() ([]byte, []int) {
-	return fileDescriptor_akc_8293eb9c04628bc9, []int{1, 0}
+func (m *Key) Reset()         { *m = Key{} }
+func (m *Key) String() string { return proto.CompactTextString(m) }
+func (*Key) ProtoMessage()    {}
+func (*Key) Descriptor() ([]byte, []int) {
+	return fileDescriptor_akc_dfc3071bc1e6a17a, []int{2}
 }
-func (m *Keys_Key) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Keys_Key.Unmarshal(m, b)
+func (m *Key) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Key.Unmarshal(m, b)
 }
-func (m *Keys_Key) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Keys_Key.Marshal(b, m, deterministic)
+func (m *Key) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Key.Marshal(b, m, deterministic)
 }
-func (dst *Keys_Key) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Keys_Key.Merge(dst, src)
+func (dst *Key) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Key.Merge(dst, src)
 }
-func (m *Keys_Key) XXX_Size() int {
-	return xxx_messageInfo_Keys_Key.Size(m)
+func (m *Key) XXX_Size() int {
+	return xxx_messageInfo_Key.Size(m)
 }
-func (m *Keys_Key) XXX_DiscardUnknown() {
-	xxx_messageInfo_Keys_Key.DiscardUnknown(m)
+func (m *Key) XXX_DiscardUnknown() {
+	xxx_messageInfo_Key.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Keys_Key proto.InternalMessageInfo
+var xxx_messageInfo_Key proto.InternalMessageInfo
 
-func (m *Keys_Key) GetKey() string {
+func (m *Key) GetKey() string {
 	if m != nil {
 		return m.Key
 	}
@@ -138,9 +146,9 @@ func (m *Keys_Key) GetKey() string {
 }
 
 func init() {
-	proto.RegisterType((*User)(nil), "akc.User")
-	proto.RegisterType((*Keys)(nil), "akc.Keys")
-	proto.RegisterType((*Keys_Key)(nil), "akc.Keys.Key")
+	proto.RegisterType((*AuthorizedKeysRequest)(nil), "akc.AuthorizedKeysRequest")
+	proto.RegisterType((*AuthorizedKeysResponse)(nil), "akc.AuthorizedKeysResponse")
+	proto.RegisterType((*Key)(nil), "akc.Key")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -155,7 +163,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AuthorizedKeysClient interface {
-	Auth(ctx context.Context, in *User, opts ...grpc.CallOption) (*Keys, error)
+	Match(ctx context.Context, in *AuthorizedKeysRequest, opts ...grpc.CallOption) (*AuthorizedKeysResponse, error)
 }
 
 type authorizedKeysClient struct {
@@ -166,9 +174,9 @@ func NewAuthorizedKeysClient(cc *grpc.ClientConn) AuthorizedKeysClient {
 	return &authorizedKeysClient{cc}
 }
 
-func (c *authorizedKeysClient) Auth(ctx context.Context, in *User, opts ...grpc.CallOption) (*Keys, error) {
-	out := new(Keys)
-	err := c.cc.Invoke(ctx, "/akc.AuthorizedKeys/Auth", in, out, opts...)
+func (c *authorizedKeysClient) Match(ctx context.Context, in *AuthorizedKeysRequest, opts ...grpc.CallOption) (*AuthorizedKeysResponse, error) {
+	out := new(AuthorizedKeysResponse)
+	err := c.cc.Invoke(ctx, "/akc.AuthorizedKeys/Match", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -177,27 +185,27 @@ func (c *authorizedKeysClient) Auth(ctx context.Context, in *User, opts ...grpc.
 
 // AuthorizedKeysServer is the server API for AuthorizedKeys service.
 type AuthorizedKeysServer interface {
-	Auth(context.Context, *User) (*Keys, error)
+	Match(context.Context, *AuthorizedKeysRequest) (*AuthorizedKeysResponse, error)
 }
 
 func RegisterAuthorizedKeysServer(s *grpc.Server, srv AuthorizedKeysServer) {
 	s.RegisterService(&_AuthorizedKeys_serviceDesc, srv)
 }
 
-func _AuthorizedKeys_Auth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(User)
+func _AuthorizedKeys_Match_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AuthorizedKeysRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthorizedKeysServer).Auth(ctx, in)
+		return srv.(AuthorizedKeysServer).Match(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/akc.AuthorizedKeys/Auth",
+		FullMethod: "/akc.AuthorizedKeys/Match",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizedKeysServer).Auth(ctx, req.(*User))
+		return srv.(AuthorizedKeysServer).Match(ctx, req.(*AuthorizedKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -207,26 +215,27 @@ var _AuthorizedKeys_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*AuthorizedKeysServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Auth",
-			Handler:    _AuthorizedKeys_Auth_Handler,
+			MethodName: "Match",
+			Handler:    _AuthorizedKeys_Match_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "akc.proto",
 }
 
-func init() { proto.RegisterFile("akc.proto", fileDescriptor_akc_8293eb9c04628bc9) }
+func init() { proto.RegisterFile("akc.proto", fileDescriptor_akc_dfc3071bc1e6a17a) }
 
-var fileDescriptor_akc_8293eb9c04628bc9 = []byte{
-	// 159 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_akc_dfc3071bc1e6a17a = []byte{
+	// 175 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4c, 0xcc, 0x4e, 0xd6,
-	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4e, 0xcc, 0x4e, 0x56, 0x52, 0xe2, 0x62, 0x09, 0x2d,
-	0x4e, 0x2d, 0x12, 0x92, 0xe2, 0xe2, 0x28, 0x2d, 0x4e, 0x2d, 0xca, 0x4b, 0xcc, 0x4d, 0x95, 0x60,
-	0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x82, 0xf3, 0x95, 0x9c, 0xb8, 0x58, 0xbc, 0x53, 0x2b, 0x8b, 0x85,
-	0x14, 0xb9, 0x58, 0xb2, 0x53, 0x2b, 0x8b, 0x25, 0x18, 0x15, 0x98, 0x35, 0xb8, 0x8d, 0x78, 0xf5,
-	0x40, 0x46, 0x81, 0x24, 0x40, 0x44, 0x10, 0x58, 0x4a, 0x4a, 0x9c, 0x8b, 0xd9, 0x3b, 0xb5, 0x52,
-	0x48, 0x80, 0x8b, 0x39, 0x3b, 0xb5, 0x12, 0x6a, 0x10, 0x88, 0x69, 0x64, 0xc0, 0xc5, 0xe7, 0x58,
-	0x5a, 0x92, 0x91, 0x5f, 0x94, 0x59, 0x95, 0x9a, 0x02, 0x36, 0x4d, 0x8e, 0x8b, 0x05, 0x24, 0x22,
-	0xc4, 0x09, 0x36, 0x07, 0xe4, 0x08, 0x29, 0x4e, 0xb8, 0x91, 0x4a, 0x0c, 0x49, 0x6c, 0x60, 0x57,
-	0x1a, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x91, 0x16, 0x44, 0x49, 0xb2, 0x00, 0x00, 0x00,
+	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4e, 0xcc, 0x4e, 0x56, 0x32, 0xe6, 0x12, 0x75, 0x2c,
+	0x2d, 0xc9, 0xc8, 0x2f, 0xca, 0xac, 0x4a, 0x4d, 0xf1, 0x4e, 0xad, 0x2c, 0x0e, 0x4a, 0x2d, 0x2c,
+	0x4d, 0x2d, 0x2e, 0x11, 0x92, 0xe2, 0xe2, 0x28, 0x2d, 0x4e, 0x2d, 0xca, 0x4b, 0xcc, 0x4d, 0x95,
+	0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x82, 0xf3, 0x95, 0x82, 0xb8, 0xc4, 0xd0, 0x35, 0x15, 0x17,
+	0xe4, 0xe7, 0x15, 0xa7, 0xe2, 0xd3, 0x25, 0x24, 0xc3, 0xc5, 0x92, 0x9d, 0x5a, 0x59, 0x2c, 0xc1,
+	0xa4, 0xc0, 0xac, 0xc1, 0x6d, 0xc4, 0xa1, 0x07, 0x72, 0x89, 0x77, 0x6a, 0x65, 0x10, 0x58, 0x54,
+	0x49, 0x9c, 0x8b, 0xd9, 0x3b, 0xb5, 0x52, 0x48, 0x00, 0x4c, 0x41, 0xf5, 0x82, 0x98, 0x46, 0x21,
+	0x5c, 0x7c, 0xa8, 0x96, 0x09, 0x39, 0x71, 0xb1, 0xfa, 0x26, 0x96, 0x24, 0x67, 0x08, 0x49, 0x81,
+	0xcd, 0xc0, 0xea, 0x7e, 0x29, 0x69, 0xac, 0x72, 0x10, 0x67, 0x2a, 0x31, 0x24, 0xb1, 0x81, 0xc3,
+	0xc0, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x4c, 0xcf, 0x8f, 0x9d, 0x10, 0x01, 0x00, 0x00,
 }
